@@ -1,7 +1,8 @@
 import tkinter as tk
+import serial
 
 def send_command(command):
-    pass
+    ser.write(command.encode())
 
 def move_up():
     send_command('1')  # Send '1' to move up
@@ -13,7 +14,7 @@ def hold():
     send_command('3') # Send '3' to hold
 
 # Create serial connection to Arduino
- # Replace 'COM3' with the appropriate port
+ser = serial.Serial('COM5', 9600)  # Replace 'COM3' with the appropriate port
 
 # Create GUI window
 window = tk.Tk()
